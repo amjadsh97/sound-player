@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Music player - devchallenges.io</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" sizes="any">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<main class="main">
+
+  <div class="song-wrapper">
+    <div class="image-wrapper">
+      <img id="cover_image" src="" alt="Cover Image"/>
+    </div>
+    <p id="song_name" class="song-name"></p>
+    <p id="song_description" class="song-desc"></p>
+    <div class="time-wrapper">
+      <p id="current_duration"></p>
+      <p id="left_duration"></p>
+    </div>
+
+    <div class="line">
+      <div class="inner-line"></div>
+    </div>
+    <audio id="player_element">
+      <source src="" type="audio/mpeg">
+      Your browser does not support the audio tag.
+    </audio>
+    <div class="buttons-container">
+      <button class="move-button" id="prev_btn">
+        <img src="assets/Stop_and_play_fill-1.svg" alt="stop image">
+      </button>
+      <button id="run_button">
+        <img class="play-image" src="assets/Play_fill.svg" alt="stop image">
+        <img class="stop-image" src="assets/pause-solid.svg" alt="stop image">
+      </button>
+      <button class="move-button" id="next_btn">
+        <img src="assets/Stop_and_play_fill.svg" alt="stop image">
+      </button>
+    </div>
+  </div>
+
+
+</main>
+
+
+<script src="js/app.js" defer></script>
+</body>
+</html>

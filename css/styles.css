@@ -1,0 +1,123 @@
+:root {--pink:#C93B76;--white:#E5E7EB;--grey-font:#4D5562;--black:#212936;--font:sans-serif;}
+
+html { font-size: 62.5%; font-family: var(--font);}
+
+body { font-size: 2rem;}
+
+
+.main {display: flex;align-items: center;justify-content: center;min-height: 100vh;background-image: url(../assets/bg.jpg);background-position: center;background-repeat: no-repeat;background-size: cover;}
+
+.song-wrapper {
+  padding: 20px;
+  background-color: var(--black);
+  border-radius: 20px;
+  min-width: 350px;
+  color: white;
+  text-align: center;
+  max-width: 100%;
+}
+
+.image-wrapper {
+  padding-bottom: 107%;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.image-wrapper > img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+p#song_name {
+  font-size: 2rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: var(--white);
+}
+
+p#song_description {
+  color: var(--grey-font);
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.time-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  color: var(--grey-font);
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+.line {
+  display: block;
+  height: 5px;
+  background: var(--white);
+  margin-bottom: 50px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.line:hover {
+  opacity: 0.6;
+}
+
+.inner-line {
+  width: 0;
+  transition: 0.2s;
+  background: #C93B76;
+  position: absolute;
+  left: 0;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+button#run_button.playing .stop-image {
+  display: block;
+}
+
+button#run_button .stop-image {
+  display:none ;
+}
+
+button#run_button.playing .play-image {
+  display: none;
+}
+
+.buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 0px;
+}
+
+button#run_button {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--pink);
+  border-radius: 50%;
+}
+
+
+
+@media(max-width:767px){
+  .song-wrapper {
+    min-width: calc(100% - 40px);
+  }
+}
+
