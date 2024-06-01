@@ -1,6 +1,8 @@
-# devchallenges - Guess The Word Game solution
+# devchallenges - Music Player Solution
 
-This is a solution to the [Guess The Word Game solution](https://devchallenges.io/challenge/guess-the-word). This challenge is to create a small game that tests your data management and DOM manipulation with JavaScript.
+This is a solution to the [Music Player solution](https://devchallenges.io/challenge/music-player). This challenge is
+an excellent opportunity to enhance my JavaScript skills by creating a 
+simple music player app that tests my data management capabilities using JavaScript.
 
 ## Table of contents
 
@@ -23,18 +25,16 @@ This is a solution to the [Guess The Word Game solution](https://devchallenges.i
 
 Users should be able to:
 
-- Create a guess the word game that matches the given design.
+- Create a music player app that matches the given design.
 - Use HTML to create the basic structure.
-- Use Vanilla JavaScript to add interactivity.
-- Users can see a random scrambled word when the page is first loaded or after users click the random button.
-- Users can enter one letter at a time. After each attempt, the input should automatically focus on the next input if it exists.
-- Users can see the number of wrong answers (tries) and which answers are wrong (mistakes).
-- Users can regenerate a new scrambled word by selecting the random button.
-- Users can reset all inputs, mistakes, and tries by selecting the reset button.
-- When the number of tries or mistakes reaches 6, the game should be reset.
-- When the user completes the game, it should show a '🎉 Success' alert.
+- Add image, title, author, progress bar, player button,... according to the design.
+- Use vanilla JavaScript to add interactivity.
+- Users should be able to play and stop the current song.
+- Users should be able to go to next and previous songs.
+- Users should be able to change play time with the progress bar.
 - The page should be responsive on different screen sizes.
 - Deploy the solution and submit Repository URL and Demo URL.
+
 
 ### Screenshot
 
@@ -42,8 +42,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: https://github.com/amjadsh97/word-scramble
-- Live Site URL: https://word-scramble-rho.vercel.app/
+- Solution URL: https://github.com/amjadsh97/sound-player
+- Live Site URL: https://sound-player-seven.vercel.app/
 
 ## My process
 
@@ -58,33 +58,19 @@ Users should be able to:
 
 
 ```js
-//Function to handle the keyborad input and make sure its valid value.
-function handleKeyPress(event) {
-	const key = event.key.toLowerCase();
-	if (key.length === 1 && key.match(/[a-zA-Z]/)) {
-
-		if (key === guessedWord[currentIndex]) {
-			letterElements[currentIndex].innerText = key;
-			currentIndex++;
-			updateActiveLetter(currentIndex);
-			if (currentIndex === guessedWord.length) {
-				showWinnerMessage();
-			}
-		} else {
-			userTries.push(key);
-			userMistakes.push(key);
-		}
-		if (userMistakes.length > MAX_NUMBER_OF_TRIES_AND_MISTAKES || userTries.length > MAX_NUMBER_OF_TRIES_AND_MISTAKES) {
-			handleResetButtonClick();
-		}
-
-		updateTriesAndMistakes()
-	}
+//Function to find the width of progress line
+function handleSeek(event) {
+	const rect = progressBar.getBoundingClientRect();
+	const offsetX = event.clientX - rect.left;
+	const width = rect.width;
+	const newTime = (offsetX / width) * playerElement.duration;
+	playerElement.currentTime = newTime;
 }
 
-//function to get shuffled word
-function shuffleWord(word) {
-	return word.split('').sort(() => 0.5 - Math.random()).join('');
+//function to update the width of progress
+function updateProgressBar() {
+	const progress = (playerElement.currentTime / playerElement.duration) * 100;
+	innerProgressBar.style.width = `${progress}%`;
 }
 
 ```
@@ -99,7 +85,7 @@ to enhance the functionality and security of the applications I build.
 
 ### Useful resources
 
-- [Animate css package](https://animate.style/) - A cross-browser library of CSS animations. As easy to use as an easy thing.
+- [HTML Audio/Video Events](https://www.w3schools.com/tags/ref_av_dom.asp) - W3Schools is a freemium educational website for learning coding online.
 
 
 ## Author
